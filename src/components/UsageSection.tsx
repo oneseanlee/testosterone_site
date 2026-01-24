@@ -1,7 +1,7 @@
 const UsageSection = () => {
     return (
         <div className="w-full bg-white py-8">
-            <div className="w-full px-2.5">
+            <div className="w-full px-[34px]">
                 {/* Light gray-blue rounded card */}
                 <div className="bg-[#E8ECEF] rounded-2xl overflow-hidden">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
