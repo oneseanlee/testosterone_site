@@ -20,7 +20,7 @@ const Navbar = () => {
                 <div className="w-full px-4 md:px-8">
                     <div className="flex justify-between h-16 items-center">
                         <div className="flex-shrink-0 flex items-center">
-                            <span className="text-xl font-bold tracking-widest text-[#001A40]">MAXIMUS</span>
+                            <img src="/assets/logo.png" alt="Best365Labs" className="h-8" />
                         </div>
 
                         <div className="hidden lg:flex items-center justify-center flex-1">
