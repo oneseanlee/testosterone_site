@@ -23,34 +23,36 @@ const Navbar = () => {
                             <span className="text-xl font-bold tracking-widest text-[#001A40]">MAXIMUS</span>
                         </div>
 
-                        <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 absolute left-1/2 transform -translate-x-1/2">
-                            <div
-                                className={`relative group h-16 flex items-center ${activeDropdown === 'testosterone' ? 'z-[60]' : ''}`}
-                                onMouseEnter={() => setActiveDropdown('testosterone')}
-                                onMouseLeave={() => setActiveDropdown(null)}
-                            >
-                                <a href="#" className={`transition-colors text-sm font-medium flex items-center gap-1 py-2 ${activeDropdown === 'testosterone' ? 'text-gray-700 relative z-[60]' : 'text-gray-700 hover:text-primary'}`}>
-                                    Testosterone <ChevronDown size={14} />
-                                </a>
-                                {activeDropdown === 'testosterone' && <MegaMenu />}
-                            </div>
-                            <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
-                                Weight Loss <ChevronDown size={14} />
-                            </a>
-                            <div className="relative group">
+                        <div className="hidden lg:flex items-center justify-center flex-1">
+                            <div className="flex items-center space-x-4 xl:space-x-6">
+                                <div
+                                    className={`relative group h-16 flex items-center ${activeDropdown === 'testosterone' ? 'z-[60]' : ''}`}
+                                    onMouseEnter={() => setActiveDropdown('testosterone')}
+                                    onMouseLeave={() => setActiveDropdown(null)}
+                                >
+                                    <a href="#" className={`transition-colors text-sm font-medium flex items-center gap-1 py-2 ${activeDropdown === 'testosterone' ? 'text-gray-700 relative z-[60]' : 'text-gray-700 hover:text-primary'}`}>
+                                        Testosterone <ChevronDown size={14} />
+                                    </a>
+                                    {activeDropdown === 'testosterone' && <MegaMenu />}
+                                </div>
                                 <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
-                                    Mood & Stress <span className="bg-[#EBCB8B] text-[10px] px-1.5 py-0.5 rounded text-brown-800 font-bold">NEW</span> <ChevronDown size={14} />
+                                    Weight Loss <ChevronDown size={14} />
+                                </a>
+                                <div className="relative group">
+                                    <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
+                                        Mood & Stress <span className="bg-[#EBCB8B] text-[10px] px-1.5 py-0.5 rounded text-brown-800 font-bold">NEW</span> <ChevronDown size={14} />
+                                    </a>
+                                </div>
+                                <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
+                                    Blood Flow <ChevronDown size={14} />
+                                </a>
+                                <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
+                                    Hair Growth <ChevronDown size={14} />
+                                </a>
+                                <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
+                                    More <ChevronDown size={14} />
                                 </a>
                             </div>
-                            <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
-                                Blood Flow <ChevronDown size={14} />
-                            </a>
-                            <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
-                                Hair Growth <ChevronDown size={14} />
-                            </a>
-                            <a href="#" className="text-gray-700 hover:text-primary transition-colors text-sm font-medium flex items-center gap-1">
-                                More <ChevronDown size={14} />
-                            </a>
                         </div>
 
                         <div className="hidden lg:flex items-center space-x-4">
