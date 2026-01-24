@@ -16,7 +16,7 @@ const Navbar = () => {
                 />
             )}
 
-            <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
+            <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
                 <div className="w-full px-4 md:px-8">
                     <div className="flex justify-between h-16 items-center">
                         <div className="flex-shrink-0 flex items-center">
