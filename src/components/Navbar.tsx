@@ -23,7 +23,7 @@ const Navbar = () => {
                             <span className="text-xl font-bold tracking-widest text-[#001A40]">MAXIMUS</span>
                         </div>
 
-                        <div className="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
+                        <div className="hidden lg:flex items-center space-x-4 xl:space-x-6 absolute left-1/2 transform -translate-x-1/2">
                             <div
                                 className={`relative group h-16 flex items-center ${activeDropdown === 'testosterone' ? 'z-[60]' : ''}`}
                                 onMouseEnter={() => setActiveDropdown('testosterone')}
@@ -53,7 +53,7 @@ const Navbar = () => {
                             </a>
                         </div>
 
-                        <div className="hidden md:flex items-center space-x-4">
+                        <div className="hidden lg:flex items-center space-x-4">
                             <button className="bg-primary hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all">
                                 Get Started
                             </button>
@@ -62,7 +62,7 @@ const Navbar = () => {
                             </button>
                         </div>
 
-                        <div className="md:hidden flex items-center">
+                        <div className="lg:hidden flex items-center">
                             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700">
                                 {isOpen ? <X size={24} /> : <Menu size={24} />}
                             </button>
@@ -72,7 +72,7 @@ const Navbar = () => {
 
                 {/* Mobile menu */}
                 {isOpen && (
-                    <div className="md:hidden bg-white border-b border-gray-100">
+                    <div className="lg:hidden bg-white border-b border-gray-100">
                         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                             <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Testosterone</a>
                             <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Weight Loss</a>
