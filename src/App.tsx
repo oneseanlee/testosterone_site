@@ -1,6 +1,6 @@
 
 import Navbar from './components/Navbar';
-import BreadcrumbSection from './components/BreadcrumbSection';
+
 import Hero from './components/Hero';
 import MarketingBanner from './components/MarketingBanner';
 import GraphSection from './components/GraphSection';
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
       <Navbar />
-      <BreadcrumbSection />
+      
       <Hero />
       <MarketingBanner />
       <GraphSection />
