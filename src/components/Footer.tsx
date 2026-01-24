@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Facebook, Youtube, Instagram, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
