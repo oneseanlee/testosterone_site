@@ -55,7 +55,7 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        <div className="hidden lg:flex items-center space-x-4">
+                        <div className="hidden lg:flex items-center space-x-4 flex-shrink-0">
                             <button className="bg-primary hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition-all">
                                 Get Started
                             </button>
