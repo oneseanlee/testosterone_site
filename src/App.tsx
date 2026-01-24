@@ -1,27 +1,39 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import React from 'react';
+import Navbar from './components/Navbar';
+import BreadcrumbSection from './components/BreadcrumbSection';
+import Hero from './components/Hero';
+import MarketingBanner from './components/MarketingBanner';
+import GraphSection from './components/GraphSection';
+import StatsSection from './components/StatsSection';
+import UsageSection from './components/UsageSection';
+import ComparisonTable from './components/ComparisonTable';
+import BenefitsSection from './components/BenefitsSection';
+import BuildingBlocksSection from './components/BuildingBlocksSection';
+import HowItWorksSection from './components/HowItWorksSection';
+import TelehealthSection from './components/TelehealthSection';
+import FAQSection from './components/FAQSection';
+import Footer from './components/Footer';
+import './index.css';
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <div className="min-h-screen bg-white font-sans text-gray-900">
+      <Navbar />
+      <BreadcrumbSection />
+      <Hero />
+      <MarketingBanner />
+      <GraphSection />
+      <StatsSection />
+      <UsageSection />
+      <ComparisonTable />
+      <BenefitsSection />
+      <BuildingBlocksSection />
+      <HowItWorksSection />
+      <FAQSection />
+      <TelehealthSection />
+      <Footer />
+    </div>
+  );
+}
 
 export default App;
