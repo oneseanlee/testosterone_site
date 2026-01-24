@@ -11,7 +11,7 @@ const Footer = () => {
 
                     {/* Left Column: Brand (3 cols) */}
                     <div className="lg:col-span-3 flex flex-col gap-6 pr-4">
-                        <span className="text-2xl font-bold tracking-[0.2em] text-white/90">MAXIMUS</span>
+                        <img src="/assets/logo.png" alt="Best365Labs" className="h-8 brightness-0 invert" />
                         <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
                             Early access to new products, research, and insights.
                         </p>
