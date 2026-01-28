@@ -2,7 +2,7 @@
 
 const TelehealthSection = () => {
     return (
-        <div className="w-full bg-white px-[34px] pb-[34px]">
+        <div className="w-full bg-white px-4 md:px-[7.8125vw] pb-[34px]">
             <div className="w-full bg-blue-100/50 rounded-3xl py-16 md:py-24 px-6 md:px-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 

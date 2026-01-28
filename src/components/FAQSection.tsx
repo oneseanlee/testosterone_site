@@ -62,8 +62,8 @@ const FAQSection = () => {
     ];
 
     return (
-        <div className="w-full bg-white py-20 px-4">
-            <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12" style={{ paddingLeft: '7.8125vw', paddingRight: '7.8125vw' }}>
+        <div className="w-full bg-white py-20 px-4 md:px-[7.8125vw]">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12">
                 <div className="lg:col-span-4">
                     <h2 className="text-5xl font-serif text-navy mb-6">
                         Enclomiphene <br /> FAQs

@@ -2,7 +2,7 @@
 
 const BuildingBlocksSection = () => {
     return (
-        <div className="w-full bg-white px-4 md:px-[34px] py-[34px]">
+        <div className="w-full bg-white px-4 md:px-[7.8125vw] py-[34px]">
             {/* Main Card Container */}
             <div className="w-full bg-primary text-white h-auto lg:h-[1060px] px-6 md:px-16 flex items-center rounded-3xl overflow-hidden relative isolate">
 
