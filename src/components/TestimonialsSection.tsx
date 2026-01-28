@@ -58,7 +58,7 @@ const testimonials: Testimonial[] = [
 const StarRating = () => (
     <div className="flex gap-0.5">
         {[...Array(5)].map((_, i) => (
-            <Star key={i} size={16} className="text-amber-400 fill-amber-400" />
+            <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
         ))}
     </div>
 );
@@ -69,48 +69,52 @@ interface TestimonialCardProps {
 
 const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
     return (
-        <div className="relative aspect-[4/5] rounded-2xl overflow-hidden group">
-            {/* Background Image - Grayscale */}
-            <img
-                src={testimonial.image}
-                alt={`${testimonial.name} testimonial`}
-                className="absolute inset-0 w-full h-full object-cover grayscale"
-                loading="lazy"
-            />
-            
-            {/* Gradient overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        <div className="flex-shrink-0 w-[320px] md:w-[380px] group">
+            <div className="relative h-[480px] md:h-[540px] rounded-2xl overflow-hidden bg-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-500">
+                {/* Background Image - Full visibility with contain */}
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+                    <img
+                        src={testimonial.image}
+                        alt={`${testimonial.name}`}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                        loading="lazy"
+                    />
+                </div>
+                
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-60" />
 
-            {/* Floating Quote Card */}
-            <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                <StarRating />
-                
-                <p className="text-gray-800 text-sm font-medium mt-3 leading-relaxed line-clamp-4">
-                    "{testimonial.quote}"
-                </p>
-                
-                <div className="flex items-center gap-3 mt-4">
-                    {/* Small Avatar */}
-                    <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-100">
-                        <img
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                            className="w-full h-full object-cover object-top"
-                        />
-                    </div>
+                {/* Floating Quote Card */}
+                <div className="absolute bottom-5 left-5 right-5 bg-white/98 backdrop-blur-md rounded-xl p-5 shadow-2xl transform transition-transform duration-500 group-hover:-translate-y-1">
+                    <StarRating />
                     
-                    <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-1.5">
-                            <span className="font-bold text-navy text-sm truncate">
-                                {testimonial.name}
-                            </span>
-                            {testimonial.hasVerifiedBadge && (
-                                <CheckCircle2 size={14} className="text-primary fill-primary/20 flex-shrink-0" />
-                            )}
+                    <p className="text-gray-800 text-sm leading-relaxed mt-3 line-clamp-3 font-medium">
+                        "{testimonial.quote}"
+                    </p>
+                    
+                    <div className="flex items-center gap-3 mt-4 pt-4 border-t border-gray-100">
+                        {/* Small Avatar */}
+                        <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gray-100">
+                            <img
+                                src={testimonial.image}
+                                alt={testimonial.name}
+                                className="w-full h-full object-cover object-top"
+                            />
                         </div>
-                        <p className="text-xs text-gray-500 truncate">
-                            {testimonial.handle || testimonial.credential}
-                        </p>
+                        
+                        <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-1.5">
+                                <span className="font-semibold text-navy text-sm">
+                                    {testimonial.name}
+                                </span>
+                                {testimonial.hasVerifiedBadge && (
+                                    <CheckCircle2 size={14} className="text-primary flex-shrink-0" />
+                                )}
+                            </div>
+                            <p className="text-xs text-gray-500 truncate">
+                                {testimonial.handle || testimonial.credential}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -119,20 +123,36 @@ const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
 };
 
 const TestimonialsSection = () => {
-    return (
-        <section className="w-full bg-white py-16 md:py-24">
-            <div className="w-full px-4 md:px-[7.8125vw]">
-                {/* Section Header */}
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-serif text-navy leading-tight">
-                        Real results from <span className="text-primary italic">real men.</span>
-                    </h2>
-                </div>
+    // Duplicate testimonials for seamless infinite scroll
+    const duplicatedTestimonials = [...testimonials, ...testimonials];
 
-                {/* Testimonials Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {testimonials.map((testimonial, index) => (
-                        <TestimonialCard key={index} testimonial={testimonial} />
+    return (
+        <section className="w-full bg-white py-20 md:py-28 overflow-hidden">
+            {/* Section Header */}
+            <div className="px-4 md:px-[7.8125vw] mb-14">
+                <h2 className="text-4xl md:text-5xl font-serif text-navy leading-tight text-center">
+                    Real results from <span className="text-primary italic">real men.</span>
+                </h2>
+                <p className="text-gray-500 text-center mt-4 text-lg max-w-2xl mx-auto">
+                    Hear from men who transformed their health with NHTO
+                </p>
+            </div>
+
+            {/* Carousel Container */}
+            <div className="relative">
+                {/* Fade edges */}
+                <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+                {/* Scrolling Track */}
+                <div 
+                    className="flex gap-6 animate-scroll hover:pause-animation"
+                    style={{
+                        width: 'max-content',
+                    }}
+                >
+                    {duplicatedTestimonials.map((testimonial, index) => (
+                        <TestimonialCard key={`${testimonial.name}-${index}`} testimonial={testimonial} />
                     ))}
                 </div>
             </div>
