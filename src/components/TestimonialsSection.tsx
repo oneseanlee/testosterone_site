@@ -1,14 +1,16 @@
 const testimonials = [
-    { name: "Kerry Reyes", image: "/testimonials/kerry-reyes.png" },
-    { name: "Sean Lee", image: "/testimonials/sean-lee.png" },
+    // Top row
     { name: "Darren Lopez", image: "/testimonials/darren-lopez.png" },
     { name: "Dan Schmidt", image: "/testimonials/dan-schmidt.png" },
     { name: "Brett Earnshaw", image: "/testimonials/brett-earnshaw.png" },
+    // Bottom row
+    { name: "Kerry Reyes", image: "/testimonials/kerry-reyes.png" },
+    { name: "Sean Lee", image: "/testimonials/sean-lee.png" },
     { name: "Mike VanDyke", image: "/testimonials/mike-vandyke.png" }
 ];
 
 const TestimonialCard = ({ name, image }: { name: string; image: string }) => (
-    <div className="flex-shrink-0 w-[300px] md:w-[340px] rounded-2xl overflow-hidden bg-gray-100 shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+    <div className="rounded-2xl overflow-hidden bg-soft-blue shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer">
         <img
             src={image}
             alt={name}
@@ -31,14 +33,12 @@ const TestimonialsSection = () => {
                 </p>
             </div>
 
-            {/* Scrollable Carousel - respects site margins */}
+            {/* 2-row grid layout */}
             <div className="px-[34px]">
-                <div className="overflow-x-auto scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
-                    <div className="flex gap-6 w-max">
-                        {testimonials.map((testimonial) => (
-                            <TestimonialCard key={testimonial.name} {...testimonial} />
-                        ))}
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {testimonials.map((testimonial) => (
+                        <TestimonialCard key={testimonial.name} {...testimonial} />
+                    ))}
                 </div>
             </div>
         </section>
