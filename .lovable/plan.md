@@ -1,101 +1,131 @@
 
-# Spacing Consistency Review & Fix Plan
+
+# Testimonials Section Implementation Plan
 
 ## Overview
-This plan addresses spacing inconsistencies across the cloned website to ensure uniform horizontal padding on both desktop and mobile views.
+Create a new `TestimonialsSection` component featuring 6 testimonial cards in a 3-column grid layout (2 rows), placed immediately after the StatsSection ("Improved testosterone or you don't pay").
 
 ---
 
-## Issues Identified
+## Design Specifications
 
-### 1. Mixed Padding Strategies
-The codebase uses three different horizontal padding approaches:
-- **Responsive vw**: `7.8125vw` (approximately 150px at 1920px width)
-- **Fixed px**: `34px` 
-- **Tailwind utilities**: `px-4`, `px-8`
+Based on the uploaded reference images, each testimonial card will feature:
 
-### 2. Sections with Inconsistent Spacing
-
-| Section | Current | Problem |
-|---------|---------|---------|
-| UsageSection | `px-[34px]` | Uses fixed 34px while others use 7.8125vw |
-| BuildingBlocksSection | `px-4 md:px-[34px]` | Mixed approach, different from other sections |
-| TelehealthSection | `px-[34px]` | Uses fixed 34px while others use 7.8125vw |
-| FAQSection | `px-4` + `7.8125vw` | Double padding creates excess margin on mobile |
-| Navbar | `px-4 md:px-8` | Doesn't align with body content |
-
-### 3. Mobile Responsiveness Gaps
-- 7.8125vw padding may be too aggressive on small mobile screens
-- Some sections lack proper mobile breakpoint adjustments
+- **Background**: Full-bleed grayscale photo of the person
+- **Floating quote card**: White/cream rounded card with:
+  - 5 gold star rating icons at the top
+  - Quote text in dark serif/sans font
+  - Avatar thumbnail (circular, small)
+  - Name in bold
+  - Credential/title below name
+  - Verified badge (blue checkmark) where applicable
 
 ---
 
-## Implementation Plan
+## Testimonial Data
 
-### Step 1: Standardize Horizontal Padding
-Create a consistent padding pattern across all sections:
-- **Desktop**: `7.8125vw` (maintains current design intent)
-- **Mobile**: `px-4` or `px-6` (more appropriate for small screens)
+| Name | Quote | Credential | Has Verified Badge |
+|------|-------|------------|-------------------|
+| Kerry Reyes | "I've competed at the highest level. NHTO helped restore energy without hormones." | Former California Championships - NPC, MiddleWeight, 1st | Yes (@kerryreyesfiteness) |
+| Sean Lee | "I was skeptical of anything 'non-hormonal,' but NHTO surprised me. I feel sharper, more driven, and balanced without the risks I was worried about." | @oneseanlee | Yes |
+| Darren Lopez | "Our goal was simple: create a solution that truly helps people reclaim their energy, resilience, and confidence by optimizing health at the cellular level." | Co-Founder | No |
+| Dan Schmidt | "I'm proud to help build a system that combines the latest science with real-world results--empowering everyone to achieve peak cellular health." | Co-Founder | No |
+| Brett Earnshaw | "My testosterone went from 658 to 749 in two months--more energy, sharper focus, better performance. This system changed my life." | Early Tester | No |
+| Mike VanDyke | "I experienced rapid improvements in energy and cellular performance. It's a game-changer for anyone serious about health." | Early Tester | No |
 
-### Step 2: Fix Individual Sections
+---
 
-**FAQSection.tsx**
-- Remove duplicate `px-4` on outer wrapper
-- Keep only the `7.8125vw` inline style with mobile fallback
+## File Changes
 
-**BuildingBlocksSection.tsx**  
-- Update to use consistent padding: `px-4 md:px-[7.8125vw]` on outer wrapper
+### 1. Create `src/components/TestimonialsSection.tsx` (New File)
 
-**TelehealthSection.tsx**
-- Update from `px-[34px]` to match the pattern: `px-4 md:px-[7.8125vw]`
+**Component Structure:**
+```text
+TestimonialsSection
+  - Container with consistent horizontal padding (px-4 md:px-[7.8125vw])
+  - Optional section heading (e.g., "Real Results from Real Men")
+  - 3-column responsive grid (1 col mobile, 2 col tablet, 3 col desktop)
+  - 6 TestimonialCard components
+```
 
-**UsageSection.tsx**
-- Keep `px-[34px]` per user's explicit request (this was intentionally set differently)
+**Card Component Structure:**
+```text
+TestimonialCard
+  - Outer container: aspect-square, rounded-2xl, overflow-hidden, relative
+  - Background image: grayscale filter, object-cover, full size
+  - Floating quote card: absolute positioned, white bg, rounded-xl, shadow
+    - Star rating row (5 filled gold stars using lucide-react Star icon)
+    - Quote text
+    - User info row: avatar + name + credential + optional verified badge
+```
 
-**Navbar.tsx**
-- Align navbar padding with content sections for visual consistency
+### 2. Copy Uploaded Images to `public/testimonials/`
 
-### Step 3: Add Mobile-First Responsive Padding
-For sections using `7.8125vw`, add mobile fallbacks:
+The 6 uploaded images will be saved as:
+- `/testimonials/kerry-reyes.png`
+- `/testimonials/sean-lee.png`
+- `/testimonials/darren-lopez.png`
+- `/testimonials/dan-schmidt.png`
+- `/testimonials/brett-earnshaw.png`
+- `/testimonials/mike-vandyke.png`
+
+### 3. Update `src/App.tsx`
+
+Add the import and place the component after StatsSection:
 
 ```text
-Before:  style={{ paddingLeft: '7.8125vw', paddingRight: '7.8125vw' }}
-After:   className="px-4 md:px-0" style with media query consideration
+Current order:
+  StatsSection
+  UsageSection
+
+New order:
+  StatsSection
+  TestimonialsSection  <-- NEW
+  UsageSection
 ```
 
 ---
 
-## Files to Modify
+## Styling Details
 
-1. **src/components/FAQSection.tsx** - Remove duplicate padding
-2. **src/components/BuildingBlocksSection.tsx** - Standardize padding pattern
-3. **src/components/TelehealthSection.tsx** - Standardize padding pattern
-4. **src/components/Navbar.tsx** - Align with content padding
+**Colors (matching existing theme):**
+- Navy text: `text-navy` (#001A40)
+- Primary blue: `text-primary` (#0044CC)
+- Gold stars: `text-amber-400` or `#F5A623`
+- Quote card background: `bg-white/95` or `bg-gray-50`
 
----
+**Typography:**
+- Quote: `text-lg font-medium text-gray-800`
+- Name: `text-xl font-bold text-gray-900`
+- Credential: `text-sm text-gray-600`
 
-## Technical Details
+**Layout:**
+- Grid: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`
+- Card aspect ratio: approximately square or 4:5
+- Floating card position varies per image (some left, some right aligned)
 
-### Current Padding Calculation
-- `7.8125vw` = 7.8125% of viewport width
-  - At 1920px: ~150px
-  - At 1440px: ~113px
-  - At 768px: ~60px
-  - At 375px: ~29px (acceptable on mobile)
-
-### Recommended Unified Approach
-Use Tailwind's responsive utilities with inline styles:
-```text
-className="px-4 md:px-[7.8125vw]"
-```
-This provides:
-- 16px (1rem) padding on mobile
-- 7.8125vw padding on desktop (768px+)
+**Responsive Behavior:**
+- Mobile: Single column, stacked cards
+- Tablet (768px+): 2-column grid
+- Desktop (1024px+): 3-column grid
 
 ---
 
-## Expected Outcome
-- All content sections will have aligned left and right edges
-- Mobile views will have appropriate padding that doesn't feel cramped or excessive
-- Navbar content will align with body content
-- UsageSection maintains its intentional 34px padding per previous request
+## Technical Notes
+
+1. **Star Rating Component**: Use lucide-react `Star` icon with `fill="currentColor"` for solid gold stars
+
+2. **Grayscale Effect**: Apply `filter grayscale` class to background images
+
+3. **Verified Badge**: Use a simple blue circle with white checkmark (can use lucide-react `CheckCircle2` or custom SVG)
+
+4. **Image Optimization**: Since images are already AVIF/PNG, they'll load efficiently. Consider adding `loading="lazy"` for below-the-fold images
+
+5. **Accessibility**: Include proper `alt` text for all images describing the person
+
+---
+
+## Expected Result
+
+A visually striking testimonials section with 6 cards arranged in a 3x2 grid on desktop, featuring grayscale background photos with overlaid white quote cards. The section will provide strong social proof immediately after the testosterone results claims, reinforcing credibility before the usage and comparison sections.
+
