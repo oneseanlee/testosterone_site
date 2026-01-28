@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import MarketingBanner from './components/MarketingBanner';
 import GraphSection from './components/GraphSection';
 import StatsSection from './components/StatsSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import UsageSection from './components/UsageSection';
 import ComparisonTable from './components/ComparisonTable';
 import BenefitsSection from './components/BenefitsSection';
@@ -24,6 +25,7 @@ function App() {
       <MarketingBanner />
       <GraphSection />
       <StatsSection />
+      <TestimonialsSection />
       <UsageSection />
       <ComparisonTable />
       <BenefitsSection />
