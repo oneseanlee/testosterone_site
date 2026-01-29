@@ -48,9 +48,10 @@ const ClinicalResultsSection = () => {
     ];
 
     return (
-        <div id="results" className="w-full bg-soft-blue py-20">
+        <div id="results" className="w-full py-20">
             <div className="w-full" style={{ paddingLeft: '7.8125vw', paddingRight: '7.8125vw' }}>
-                {/* Header */}
+                <div className="bg-soft-blue rounded-3xl p-8 md:p-12 lg:p-16">
+                    {/* Header */}
                 <div className="text-center mb-12">
                     <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
                         CLINICAL RESULTS
@@ -115,6 +116,7 @@ const ClinicalResultsSection = () => {
                             </p>
                         </div>
                     ))}
+                    </div>
                 </div>
             </div>
         </div>
