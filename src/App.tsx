@@ -1,17 +1,14 @@
-
 import Navbar from './components/Navbar';
-
 import Hero from './components/Hero';
-import MarketingBanner from './components/MarketingBanner';
-import GraphSection from './components/GraphSection';
-import StatsSection from './components/StatsSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import UsageSection from './components/UsageSection';
+import CriticalInfoSection from './components/CriticalInfoSection';
+import AlternativeSection from './components/AlternativeSection';
+import ClinicalResultsSection from './components/ClinicalResultsSection';
 import ComparisonTable from './components/ComparisonTable';
-import BenefitsSection from './components/BenefitsSection';
-import BuildingBlocksSection from './components/BuildingBlocksSection';
 import HowItWorksSection from './components/HowItWorksSection';
-import TelehealthSection from './components/TelehealthSection';
+import ProductBreakdownSection from './components/ProductBreakdownSection';
+import OrderSection from './components/OrderSection';
+import DoctorTestimonialsSection from './components/DoctorTestimonialsSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import './index.css';
@@ -20,19 +17,17 @@ function App() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
       <Navbar />
-      
       <Hero />
-      <MarketingBanner />
-      <GraphSection />
-      <StatsSection />
-      <TestimonialsSection />
-      <UsageSection />
+      <CriticalInfoSection />
+      <AlternativeSection />
+      <ClinicalResultsSection />
       <ComparisonTable />
-      <BenefitsSection />
-      <BuildingBlocksSection />
       <HowItWorksSection />
+      <ProductBreakdownSection />
+      <OrderSection />
+      <DoctorTestimonialsSection />
+      <TestimonialsSection />
       <FAQSection />
-      <TelehealthSection />
       <Footer />
     </div>
   );
