@@ -25,9 +25,10 @@ const CriticalInfoSection = () => {
     ];
 
     return (
-        <div id="benefits" className="w-full bg-navy py-20">
+        <div id="benefits" className="w-full py-20">
             <div className="w-full" style={{ paddingLeft: '7.8125vw', paddingRight: '7.8125vw' }}>
-                {/* Header */}
+                <div className="bg-navy rounded-3xl p-8 md:p-12 lg:p-16">
+                    {/* Header */}
                 <div className="text-center mb-12">
                     <span className="inline-flex items-center gap-2 bg-red-500/20 text-red-400 px-4 py-2 rounded-full text-sm font-bold mb-6">
                         <AlertTriangle className="w-4 h-4" />
@@ -62,6 +63,7 @@ const CriticalInfoSection = () => {
                             </p>
                         </div>
                     ))}
+                    </div>
                 </div>
             </div>
         </div>

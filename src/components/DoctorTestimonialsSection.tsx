@@ -23,9 +23,10 @@ const DoctorTestimonialsSection = () => {
     ];
 
     return (
-        <div className="w-full bg-navy py-20">
+        <div className="w-full py-20">
             <div className="w-full" style={{ paddingLeft: '7.8125vw', paddingRight: '7.8125vw' }}>
-                {/* Header */}
+                <div className="bg-navy rounded-3xl p-8 md:p-12 lg:p-16">
+                    {/* Header */}
                 <div className="text-center mb-16">
                     <span className="inline-block bg-white/10 text-white px-4 py-2 rounded-full text-sm font-bold mb-6">
                         DOCTOR TESTIMONIALS
@@ -62,6 +63,7 @@ const DoctorTestimonialsSection = () => {
                             </div>
                         </div>
                     ))}
+                    </div>
                 </div>
             </div>
         </div>
