@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
-const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b border-gray-200 py-5">
+        <div className="border-b border-gray-200 py-6">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between text-left focus:outline-none group"
@@ -17,12 +17,13 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
                     {isOpen ? <Minus size={20} /> : <Plus size={20} />}
                 </span>
             </button>
-            <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
-                }`}
-            >
-                <p className="text-gray-600 leading-relaxed">{answer}</p>
+            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
+                <p className="text-gray-600 leading-relaxed">
+                    {answer}
+                </p>
+                {isOpen && (
+                    <a href="#" className="inline-block mt-2 text-primary text-sm font-bold hover:underline">Read more</a>
+                )}
             </div>
         </div>
     );
@@ -31,75 +32,48 @@ const FAQItem = ({ question, answer }: { question: string; answer: string }) => 
 const FAQSection = () => {
     const faqs = [
         {
-            q: "How is the consultation facilitated?",
-            a: "The consultation is facilitated through happyMD, a licensed telehealth platform. An independent licensed physician will review your health intake form and determine if you're a candidate for the prescription treatment."
+            q: "How does the Enclomiphene protocol work?",
+            a: "Enclomiphene helps your body increase its own testosterone production over time, rather than replacing it. This can raise testosterone while supporting testicular function and fertility markers. Extensive scientific research and clinical practice have vetted the oral medications used in the Enclomiphene Protocol."
         },
         {
-            q: "What happens if I'm not approved?",
-            a: "If the independent physician determines you're not a candidate for prescription treatment, your $140 consultation + optimizer fee is fully refunded. You keep the UCOS supplements ($160 value) regardless of approval."
+            q: "When will I start noticing results?",
+            a: "Most patients report noticing improvements in energy and mood within the first 2-4 weeks, with full benefits typically realized after 3-4 months of consistent use."
         },
         {
-            q: "Can I use this with my current TRT?",
-            a: "Yes! MODS Max is designed to work synergistically with TRT protocols. Many physicians are adding it to their TRT protocols to help maintain testicular function and fertility while optimizing hormone levels."
+            q: "How do I take Enclomiphene?",
+            a: "It is a convenient daily pill taken orally. Your specific dosage will be determined by your doctor based on your evaluation."
         },
         {
-            q: "Does this preserve fertility?",
-            a: "Yes, unlike traditional TRT which can suppress sperm production, our Non-Hormonal Testosterone Optimizer helps maintain natural LH/FSH signaling, which supports sperm production and testicular function."
+            q: "What are the potential side effects of Enclomiphene?",
+            a: "Enclomiphene is generally well-tolerated. Potential side effects are mild and may include headache or hot flashes, but these are rare compared to traditional TRT."
         },
         {
-            q: "How quickly will I see results?",
-            a: "Most patients report noticing improvements in energy and mood within the first 2-4 weeks. Clinical results show significant testosterone increases in as little as 3 weeks, with optimal results typically achieved within 4-6 weeks."
+            q: "Is Enclomiphene as effective as TRT?",
+            a: "For many men, yes. It can significantly raise testosterone levels while maintaining fertility, which TRT does not do. However, results vary by individual."
         },
         {
-            q: "Are there side effects?",
-            a: "The Non-Hormonal Testosterone Optimizer is generally well-tolerated with zero adverse events reported across all patients in clinical settings. Potential mild side effects are rare compared to traditional TRT."
+            q: "Do I need lab work before starting Enclomiphene?",
+            a: "Yes, baseline lab work is required to ensure you are a good candidate and to measure your progress."
         },
         {
-            q: "Is this FDA approved?",
-            a: "The prescription medication (Enclomiphene) is FDA-regulated and dispensed through licensed pharmacies. The supplement products (UCOS system) are manufactured in FDA-registered facilities following GMP guidelines."
-        },
-        {
-            q: "What's included in the bundle?",
-            a: "The complete system includes: Non-Hormonal Testosterone Optimizer (Rx formula), Activate365, Mito365, Restore365 (the UCOS system), and a licensed physician consultation via happyMD."
-        },
-        {
-            q: "How do I take the products?",
-            a: "The Non-Hormonal Testosterone Optimizer is a sublingual formula taken daily. Activate365 is taken first thing in the morning, Mito365 15 minutes after, and Restore365 30-60 minutes before bed."
-        },
-        {
-            q: "Who is happyMD?",
-            a: "happyMD is an independent licensed telehealth platform that facilitates medical consultations with board-certified physicians. They review your health information and determine prescription eligibility independently."
+            q: "Can I use recent blood work instead of taking the at-home test?",
+            a: "Yes, if your lab work is from within the last 3 months and measures the necessary biomarkers, you may be able to use it."
         }
     ];
 
     return (
         <div className="w-full bg-white py-20 px-4 md:px-[7.8125vw]">
             <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12">
-                {/* Left Column */}
                 <div className="lg:col-span-4">
-                    <div className="flex items-center gap-3 mb-4">
-                        <HelpCircle className="w-8 h-8 text-primary" />
-                        <span className="text-sm font-bold text-primary uppercase tracking-wide">
-                            Medical Questions
-                        </span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl font-serif text-navy mb-6">
-                        Frequently Asked Questions
+                    <h2 className="text-5xl font-serif text-navy mb-6">
+                        Enclomiphene <br /> FAQs
                     </h2>
-                    <div className="flex flex-col gap-3 text-sm">
-                        <p className="text-gray-600">
-                            Have more questions? We're here to help.
-                        </p>
-                        <a href="tel:385-421-5651" className="text-primary font-bold hover:underline">
-                            📞 Call: 385-421-5651
-                        </a>
-                        <a href="mailto:info@best365labs.com" className="text-primary font-bold hover:underline">
-                            📧 info@best365labs.com
-                        </a>
+                    <div className="flex flex-col gap-2 text-sm font-bold text-primary uppercase tracking-wide">
+                        <a href="#" className="hover:underline">Contact</a>
+                        <a href="#" className="hover:underline">Support</a>
                     </div>
                 </div>
 
-                {/* Right Column - FAQs */}
                 <div className="lg:col-span-8">
                     {faqs.map((faq, idx) => (
                         <FAQItem key={idx} question={faq.q} answer={faq.a} />

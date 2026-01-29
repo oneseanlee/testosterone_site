@@ -1,86 +1,132 @@
-import { Phone, Mail, MapPin } from 'lucide-react';
+
+import { Facebook, Youtube, Instagram, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="py-20">
-            <div style={{ paddingLeft: '7.8125vw', paddingRight: '7.8125vw' }}>
-                <div className="bg-navy text-white rounded-3xl p-8 md:p-12 lg:p-16">
-                    {/* Main Footer Content */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                        {/* Brand Column */}
-                        <div>
-                            <img src="/assets/logo.png" alt="Best365Labs" className="h-8 brightness-0 invert mb-6" />
-                            <p className="text-sm text-gray-400 mb-4">
-                                Publicly Traded: BHIC
-                            </p>
-                            <div className="space-y-3 text-sm text-gray-300">
-                                <a href="tel:385-421-5651" className="flex items-center gap-2 hover:text-white transition-colors">
-                                    <Phone className="w-4 h-4" />
-                                    (385) 421-5651
-                                </a>
-                                <a href="mailto:info@best365labs.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                                    <Mail className="w-4 h-4" />
-                                    info@best365labs.com
-                                </a>
-                                <p className="flex items-start gap-2">
-                                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                                    <span>14857 S Concorde Park Dr,<br />Bluffdale, UT 84065</span>
-                                </p>
-                            </div>
-                        </div>
+        <footer className="bg-navy text-white pt-16 pb-8 border-t border-white/10">
+            <div className="w-full" style={{ paddingLeft: '7.8125vw', paddingRight: '7.8125vw' }}>
 
-                        {/* Legal Links */}
-                        <div>
-                            <h4 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Legal</h4>
-                            <ul className="space-y-3 text-sm text-gray-300">
-                                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Terms and Conditions</a></li>
-                                <li><a href="#" className="hover:text-white transition-colors">Return Policy</a></li>
-                            </ul>
-                        </div>
+                {/* Main Content Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-4 mb-16 items-start">
 
-                        {/* Quick Links */}
-                        <div>
-                            <h4 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Quick Links</h4>
-                            <ul className="space-y-3 text-sm text-gray-300">
-                                <li><a href="#benefits" className="hover:text-white transition-colors">Benefits</a></li>
-                                <li><a href="#results" className="hover:text-white transition-colors">Results</a></li>
-                                <li><a href="#compare" className="hover:text-white transition-colors">Compare</a></li>
-                                <li><a href="#bundle" className="hover:text-white transition-colors">Bundle</a></li>
-                            </ul>
-                        </div>
-
-                        {/* CTA */}
-                        <div>
-                            <h4 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">Get Started</h4>
-                            <button className="w-full bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold text-sm transition-all">
-                                Get The System
+                    {/* Left Column: Brand (3 cols) */}
+                    <div className="lg:col-span-3 flex flex-col gap-6 pr-4">
+                        <img src="/assets/logo.png" alt="Best365Labs" className="h-8 brightness-0 invert" />
+                        <p className="text-sm text-gray-400 max-w-xs leading-relaxed">
+                            Early access to new products, research, and insights.
+                        </p>
+                        <div className="flex gap-2 w-full max-w-xs">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="bg-transparent border border-gray-700 rounded px-4 py-2 text-sm w-full focus:outline-none focus:border-white transition-colors placeholder:text-gray-600"
+                            />
+                            <button className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded transition-colors text-sm">
+                                →
                             </button>
                         </div>
                     </div>
 
-                    {/* Disclaimers */}
-                    <div className="border-t border-white/10 pt-8 mt-8">
-                        <div className="space-y-4 text-xs text-gray-500 leading-relaxed">
-                            <p>
-                                <strong>GLP-1 Program Disclaimer:</strong> GLP-1 consultations, prescriptions, and related medical services are provided by independent licensed healthcare professionals through the happyMD telehealth network. Best 365 Labs, Inc. does not provide medical services, telehealth consultations, or prescriptions. Medication eligibility and dosage are determined solely by the provider based on individual medical evaluation.
-                            </p>
-                            <p>
-                                <strong>Caution:</strong> Methylene Blue should not be used in patients who have glucose-6-phosphate dehydrogenase deficiency, as this may lead to hemolysis. Do not use if pregnant, nursing or think you might be pregnant. If questions consult your physician. May cause your urine to turn blue or green. Do not worry this is normal.
-                            </p>
-                            <p>
-                                * The statements made regarding these products have not been evaluated by the Food and Drug Administration. The efficacy of these products has not been confirmed by FDA-approved research. These products are not intended to diagnose, treat, cure or prevent any disease. All information presented here is not meant as a substitute for or alternative to information from health care practitioners. Please consult your health care professional about potential interactions or other possible complications before using any product. The Federal Food, Drug, and Cosmetic Act require this notice.
-                            </p>
-                        </div>
+                    {/* Column 2: Testosterone (2 cols) */}
+                    <div className="lg:col-span-2">
+                        <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-6">Testosterone</h4>
+                        <ul className="space-y-3 text-[13px] text-gray-300 font-medium">
+                            <li><a href="#" className="hover:text-white transition-colors">Enclomiphene</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Oral Testosterone</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Injectable Testosterone</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Testosterone Cream</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">At-Home Testosterone Test</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">All Testosterone</a></li>
+                        </ul>
                     </div>
 
-                    {/* Copyright */}
-                    <div className="border-t border-white/10 pt-6 mt-6 text-center">
-                        <p className="text-sm text-gray-500">
-                            © 2026 by Best 365 Labs, Inc. All rights reserved.
-                        </p>
+                    {/* Column 3: Weight Loss (2 cols) */}
+                    <div className="lg:col-span-2">
+                        <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-6">Weight Loss</h4>
+                        <ul className="space-y-3 text-[13px] text-gray-300 font-medium">
+                            <li><a href="#" className="hover:text-white transition-colors">Tirzepatide</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Tirzepatide Microdose</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Semaglutide</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Semaglutide Microdose</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">All Weight Loss</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Column 4: More Treatments (2 cols) */}
+                    <div className="lg:col-span-2">
+                        <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-6">More Treatments</h4>
+                        <ul className="space-y-3 text-[13px] text-gray-300 font-medium">
+                            <li><a href="#" className="hover:text-white transition-colors">Oxytocin Calming Cream</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Sermorelin Injections</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Blood Flow</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Hair Regrowth</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Building Blocks</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Column 5: Resources (1 col) */}
+                    <div className="lg:col-span-1">
+                        <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-6">Resources</h4>
+                        <ul className="space-y-3 text-[13px] text-gray-300 font-medium">
+                            <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Research & Clinical Studies</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">BMI Calculator</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Testosterone Calculator</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Peptide Calculator</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Column 6: Company (1 col) */}
+                    <div className="lg:col-span-1">
+                        <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-6">Company</h4>
+                        <ul className="space-y-3 text-[13px] text-gray-300 font-medium">
+                            <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Join Our Community</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Partners</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                            <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Column 7: Actions/Buttons (1 col - expanding) */}
+                    <div className="lg:col-span-1 flex flex-col gap-3 items-end pt-1">
+                        <button className="bg-white hover:bg-gray-100 text-navy px-5 py-2 rounded-full font-bold text-[13px] transition-colors whitespace-nowrap w-full md:w-auto text-center">
+                            Get Started
+                        </button>
+                        <button className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-bold text-[13px] transition-colors backdrop-blur-sm whitespace-nowrap w-full md:w-auto text-center">
+                            Member Login
+                        </button>
+                    </div>
+
+                </div>
+
+                {/* Bottom Section: Social & Badges */}
+                <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/10 pt-8">
+                    <div className="flex gap-6">
+                        <a href="#" className="text-white hover:text-primary transition-colors"><Facebook size={24} /></a>
+                        <a href="#" className="text-white hover:text-primary transition-colors"><Youtube size={24} /></a>
+                        <a href="#" className="text-white hover:text-primary transition-colors"><Instagram size={24} /></a>
+                        <a href="#" className="text-white hover:text-primary transition-colors"><MessageCircle size={24} /></a>
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                        {/* Simulated Badges */}
+                        <div className="flex items-center gap-2">
+                            <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold text-center leading-none border border-white/20">
+                                Inc.<br />5000
+                            </span>
+                            <span className="text-[10px] text-gray-400 max-w-[80px] leading-tight">
+                                Proud to be 27th fastest growing company in America.
+                            </span>
+                        </div>
+
+                        <div className="w-12 h-12 rounded bg-white/10 flex items-center justify-center border border-white/20">
+                            <span className="text-[8px] font-bold text-center">LegitScript<br />Certified</span>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </footer>
     );

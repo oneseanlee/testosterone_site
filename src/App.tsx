@@ -1,14 +1,17 @@
+
 import Navbar from './components/Navbar';
+
 import Hero from './components/Hero';
-import CriticalInfoSection from './components/CriticalInfoSection';
-import AlternativeSection from './components/AlternativeSection';
-import ClinicalResultsSection from './components/ClinicalResultsSection';
-import ComparisonTable from './components/ComparisonTable';
-import HowItWorksSection from './components/HowItWorksSection';
-import ProductBreakdownSection from './components/ProductBreakdownSection';
-import OrderSection from './components/OrderSection';
-import DoctorTestimonialsSection from './components/DoctorTestimonialsSection';
+import MarketingBanner from './components/MarketingBanner';
+import GraphSection from './components/GraphSection';
+import StatsSection from './components/StatsSection';
 import TestimonialsSection from './components/TestimonialsSection';
+import UsageSection from './components/UsageSection';
+import ComparisonTable from './components/ComparisonTable';
+import BenefitsSection from './components/BenefitsSection';
+import BuildingBlocksSection from './components/BuildingBlocksSection';
+import HowItWorksSection from './components/HowItWorksSection';
+import TelehealthSection from './components/TelehealthSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import './index.css';
@@ -17,17 +20,19 @@ function App() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
       <Navbar />
+      
       <Hero />
-      <CriticalInfoSection />
-      <AlternativeSection />
-      <ClinicalResultsSection />
-      <ComparisonTable />
-      <HowItWorksSection />
-      <ProductBreakdownSection />
-      <OrderSection />
-      <DoctorTestimonialsSection />
+      <MarketingBanner />
+      <GraphSection />
+      <StatsSection />
       <TestimonialsSection />
+      <UsageSection />
+      <ComparisonTable />
+      <BenefitsSection />
+      <BuildingBlocksSection />
+      <HowItWorksSection />
       <FAQSection />
+      <TelehealthSection />
       <Footer />
     </div>
   );

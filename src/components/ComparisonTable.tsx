@@ -1,144 +1,143 @@
-import { Check, X, AlertTriangle } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 
 const ComparisonTable = () => {
     const features = [
         {
-            name: "Testicular Function",
-            modsMax: { value: "Maintains", status: "good" },
-            trtAlone: { value: "Up to 17% atrophy", status: "bad" },
-            noTreatment: { value: "Declining", status: "bad" }
+            name: "Increases testosterone",
+            desc: "Raises both Free and Total Testosterone levels.",
+            maximus: "2x",
+            trt: "5x"
         },
         {
-            name: "Fertility",
-            modsMax: { value: "Preserved", status: "good" },
-            trtAlone: { value: "Suppressed", status: "bad" },
-            noTreatment: { value: "May decline", status: "bad" }
+            name: "Maintains fertility",
+            desc: "A fertility-safe treatment that also maintains size and function of testicles.",
+            maximus: true,
+            trt: false
         },
         {
-            name: "Hormone Balance",
-            modsMax: { value: "Natural LH/FSH", status: "good" },
-            trtAlone: { value: "Shut down", status: "bad" },
-            noTreatment: { value: "Imbalanced", status: "bad" }
+            name: "No dependency",
+            desc: "Ability to start and stop treatment and return to baseline testosterone levels.",
+            maximus: true,
+            trt: false
         },
         {
-            name: "Estrogen Control",
-            modsMax: { value: "Optimal", status: "good" },
-            trtAlone: { value: "Often elevated", status: "bad" },
-            noTreatment: { value: "Variable", status: "warn" }
+            name: "Ease",
+            desc: "Convenient daily pill. No injections or messy creams.",
+            maximus: true,
+            trt: false
         },
         {
-            name: "Dependency Risk",
-            modsMax: { value: "Easy to stop", status: "good" },
-            trtAlone: { value: "Difficult", status: "bad" },
-            noTreatment: { value: "None", status: "good" }
+            name: "Risk of side effects",
+            desc: "Likelihood of side effects caused by treatment.",
+            maximus: "Low",
+            trt: "Medium"
         },
         {
-            name: "Total Testosterone",
-            modsMax: { value: "Highest", status: "good" },
-            trtAlone: { value: "Limited", status: "warn" },
-            noTreatment: { value: "Dropping", status: "bad" }
+            name: "Function",
+            desc: "How it improves testosterone.",
+            maximus: "Boosts natural production",
+            trt: "Adds exogenous hormones"
+        },
+        {
+            name: "Liver safety",
+            desc: "Clinically shown to not elevate liver enzymes, a sign of liver damage",
+            maximus: true,
+            trt: true
         }
     ];
 
-    const getStatusIcon = (status: string) => {
-        switch (status) {
-            case "good":
-                return (
-                    <div className="bg-green-500 rounded-full p-1 inline-flex">
-                        <Check size={14} className="text-white" strokeWidth={3} />
-                    </div>
-                );
-            case "bad":
-                return (
-                    <div className="bg-red-400 rounded-full p-1 inline-flex">
-                        <X size={14} className="text-white" strokeWidth={3} />
-                    </div>
-                );
-            case "warn":
-                return (
-                    <div className="bg-yellow-500 rounded-full p-1 inline-flex">
-                        <AlertTriangle size={14} className="text-white" strokeWidth={3} />
-                    </div>
-                );
-            default:
-                return null;
-        }
-    };
-
     return (
-        <div id="compare" className="w-full bg-white py-16 md:py-24">
-            <div className="w-full" style={{ paddingLeft: '7.8125vw', paddingRight: '7.8125vw' }}>
-                {/* Header */}
-                <div className="text-center mb-12">
-                    <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-6">
-                        Scientific Comparison
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-serif text-navy">
-                        MODS Max vs. Traditional TRT
+        <div className="w-full bg-white py-16 md:py-24">
+            <div className="w-full !px-[7.8125vw]">
+
+                {/* Title - Left aligned */}
+                <div className="mb-12">
+                    <h2 className="text-4xl md:text-5xl font-serif text-[#001A40]">
+                        Enclomiphene <span className="text-gray-400 font-sans font-light">vs.</span> TRT
                     </h2>
                 </div>
 
-                {/* Table */}
-                <div className="overflow-x-auto -mx-4 px-4">
-                    <table className="w-full min-w-[700px]">
-                        <thead>
-                            <tr className="border-b-2 border-gray-200">
-                                <th className="text-left py-4 px-4 text-navy font-bold">Feature</th>
-                                <th className="text-center py-4 px-4">
-                                    <div className="bg-primary text-white rounded-xl py-3 px-4 font-bold">
-                                        MODS Max + TRT
+                <div className="overflow-x-auto pb-16 pt-12 -mx-4 px-4 md:mx-0 md:px-0">
+                    <div className="min-w-[768px]">
+                        {/* Table structure with bordered Enclomiphene column */}
+                        <div className="grid grid-cols-12 relative items-stretch">
+
+                            {/* Left feature column */}
+                            <div className="col-span-5">
+                                {/* Empty header space */}
+                                <div className="h-24 border-b border-gray-200"></div>
+
+                                {/* Feature rows */}
+                                {features.map((feature, idx) => (
+                                    <div key={idx} className="h-20 flex flex-col justify-center border-b border-gray-100 pr-6">
+                                        <h3 className="font-bold text-[#001A40] text-base leading-tight">{feature.name}</h3>
+                                        <p className="text-xs text-gray-500 mt-1 leading-tight">{feature.desc}</p>
                                     </div>
-                                </th>
-                                <th className="text-center py-4 px-4 text-gray-500 font-medium">
-                                    TRT Alone
-                                </th>
-                                <th className="text-center py-4 px-4 text-gray-500 font-medium">
-                                    No Treatment
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {features.map((feature, idx) => (
-                                <tr key={idx} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td className="py-5 px-4 font-bold text-navy">
-                                        {feature.name}
-                                    </td>
-                                    <td className="py-5 px-4 text-center">
-                                        <div className="flex items-center justify-center gap-2">
-                                            {getStatusIcon(feature.modsMax.status)}
-                                            <span className="text-sm font-medium text-navy">
-                                                {feature.modsMax.value}
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td className="py-5 px-4 text-center">
-                                        <div className="flex items-center justify-center gap-2">
-                                            {getStatusIcon(feature.trtAlone.status)}
-                                            <span className="text-sm text-gray-500">
-                                                {feature.trtAlone.value}
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td className="py-5 px-4 text-center">
-                                        <div className="flex items-center justify-center gap-2">
-                                            {getStatusIcon(feature.noTreatment.status)}
-                                            <span className="text-sm text-gray-500">
-                                                {feature.noTreatment.value}
-                                            </span>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                                ))}
+                            </div>
+
+                            {/* Enclomiphene column with border */}
+                            <div className="col-span-3 border-2 border-primary rounded-2xl relative bg-white shadow-xl z-10 -my-6 py-6 transform scale-105 origin-center">
+                                {/* Header */}
+                                <div className="h-20 flex flex-col items-center justify-center">
+                                    <span className="text-xs font-bold text-primary tracking-widest uppercase mb-1">MAXIMUS</span>
+                                    <span className="text-xl font-serif text-[#001A40]">Enclomiphene</span>
+                                </div>
+
+                                {/* Value rows */}
+                                {features.map((feature, idx) => (
+                                    <div key={idx} className="h-20 flex justify-center items-center">
+                                        {feature.maximus === true ? (
+                                            <div className="bg-primary rounded-full p-1.5 shadow-sm">
+                                                <Check size={16} className="text-white" strokeWidth={3} />
+                                            </div>
+                                        ) : feature.maximus === false ? (
+                                            <div className="bg-gray-300 rounded-full p-1.5">
+                                                <X size={16} className="text-white" strokeWidth={3} />
+                                            </div>
+                                        ) : (
+                                            <span className="text-[#001A40] font-bold text-lg">{feature.maximus}</span>
+                                        )}
+                                    </div>
+                                ))}
+
+                                {/* Button inside the bordered column */}
+                                <div className="pt-6 pb-2 flex justify-center">
+                                    <button className="bg-primary hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-xs font-bold transition-all shadow-md whitespace-nowrap">
+                                        Start my evaluation
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Traditional TRT column */}
+                            <div className="col-span-4 pl-4">
+                                {/* Header */}
+                                <div className="h-24 flex items-center justify-center border-b border-gray-200">
+                                    <span className="text-xl text-gray-500">Traditional TRT</span>
+                                </div>
+
+                                {/* Value rows */}
+                                {features.map((feature, idx) => (
+                                    <div key={idx} className="h-20 border-b border-gray-100 flex justify-center items-center">
+                                        {feature.trt === true ? (
+                                            <div className="bg-primary rounded-full p-1.5">
+                                                <Check size={14} className="text-white" strokeWidth={3} />
+                                            </div>
+                                        ) : feature.trt === false ? (
+                                            <div className="bg-gray-300 rounded-full p-1.5">
+                                                <X size={14} className="text-white" strokeWidth={3} />
+                                            </div>
+                                        ) : (
+                                            <span className="text-gray-500 font-medium text-sm">{feature.trt}</span>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
-                {/* CTA */}
-                <div className="text-center mt-12">
-                    <button className="bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-xl">
-                        Get Your System Now
-                    </button>
-                </div>
             </div>
         </div>
     );
